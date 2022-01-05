@@ -1,0 +1,352 @@
+header{
+	display: inline-block;
+	
+	color: white;
+	text-align: center;
+	width: 100%;
+	height: 3em;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	float: left;
+}
+
+
+#main_header_text{
+	float: left;
+}
+
+
+html, body {
+	
+	height: 100%;
+
+}
+
+
+body {
+	
+	display: flex;
+	flex-direction: column;
+	background-image: url("./images/back1.jpg");
+	font-family: helvetica;
+	background-color: blue;
+}
+
+
+main{
+
+	flex: 1 0 auto;
+}
+
+
+.footer {
+	flex-shrink: 0;
+	background-color: lightblue;
+	text-align: right;
+	margin-top: 10%;
+	
+}
+
+
+#introduction{
+
+	
+	font-size: 100%;
+	clear: all;
+	color: white;
+	padding-bottom: 5%;
+
+}
+
+
+.container {
+
+	flex: 1 0 auto;
+	
+	
+
+}
+
+.inner_container{
+
+	/* display: flex; delete this possibly */
+	background-blend-mode: luminosity;
+	text-align: center;
+	
+	color: white;
+	
+	
+	font-size: 3em;
+	
+
+
+}
+
+.inner_container:hover{
+
+		background-color: rgba(255,255,255,0.5);
+		/*margin-right: 15%;
+		margin-left: 15%;*/
+	
+
+}
+
+
+
+
+#image2{
+	width: 50%;
+	height: 50%;
+	border-style: solid;
+	margin-top: 10%;
+
+
+
+}
+
+#reports{
+
+	color: white;
+	font-size: 100%;
+	
+}
+
+.pdfs{
+
+	color: pink;
+}
+
+
+	/*NAV BUTTON #################################################################################################################################### */
+
+
+	/* Dropdown Button */
+	.dropbtn {
+		background-color: #3498DB;
+		color: white;
+		padding: 16px;
+		font-size: 16px;
+		border: none;
+		cursor: pointer;
+	}
+
+	/* Dropdown button on hover & focus */
+	.dropbtn:hover, .dropbtn:focus {
+		background-color: #2980B9;
+	}
+
+	/* The container <div> - needed to position the dropdown content */
+	.dropdown {
+		position: relative;
+		display: inline-block;
+		float: right;
+		margin-right: 10%;
+	}
+
+	/* Dropdown Content (Hidden by Default) */
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f1f1f1;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+		margin-right: 20%;
+	}
+
+	/* Links inside the dropdown */
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	/* Change color of dropdown links on hover */
+	.dropdown-content a:hover {background-color: #ddd}
+
+	/* Show the dropdown menu  */
+	.show {display:block;}
+
+
+	p{
+		font-size: 100%;
+	}
+
+
+
+	/*CONTACT FORM #################################################################################################################################### */
+
+
+	#contact_container{
+
+
+		width: 50%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+
+
+
+
+
+
+	}
+
+	.contact_form{
+
+
+		font-size: 1em;
+		display: flex;
+
+		flex-direction: column;
+
+
+
+
+
+	}
+
+	input{
+
+
+	}
+
+	#name{
+
+
+		font-size: 1em;
+		margin-top: 1em;
+		border-radius: 25px;
+		border: 2px solid #ADD8E6;
+		padding: 20px;
+
+
+
+	}
+
+	/*#firstName{
+
+
+		font-size: 1em;
+		margin-top: 1em;
+		border-radius: 25px;
+		border: 2px solid #ADD8E6;
+		padding: 20px;
+
+
+
+	}*/
+
+
+	#email{
+
+		font-size: 1em;
+		margin-top: 1em;
+		border-radius: 25px;
+		border: 2px solid #ADD8E6;
+		padding: 20px;
+
+
+
+
+	}
+
+	span{
+		font-size: 1em;
+		margin-top: 1em;
+		color: white;
+
+
+
+	}
+
+	
+
+#subject{
+
+		font-size: 1em;
+		margin-top: 1em;
+		border-radius: 25px;
+		border: 2px solid #ADD8E6;
+		padding: 20px;
+
+
+	}
+
+
+	#text_area{
+
+		font-size: 1em;
+		margin-top: 1em;
+		border-radius: 25px;
+		border: 2px solid #ADD8E6;
+		padding: 20px;
+
+
+	}
+
+	#contact_button{
+
+		font-size: 1em;
+		margin-top: 1em;
+		border-radius: 25px;
+		border: 2px solid #ADD8E6;
+		padding: 20px;
+
+
+	}
+
+	#contact_button:hover, .dropbtn:focus {
+		background-color: #2980B9;
+
+	}
+
+	/*GALLERY #################################################################################################################################### */
+
+
+
+	#gallery_container{
+	
+		width: 50%;
+		background-color: lightslategray;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+
+	
+	}
+
+	picture{
+
+		width: auto;
+
+	}
+
+
+	/*  Python page testing########################################################################################################################## */
+
+
+
+
+
+
+.pics {
+   /*flex: 1 0 auto;*/
+  color: white;
+ 
+
+
+
+}
+
+
+img {
+	 max-width: 100%;
+  height: auto;
+}
+
+.some-class-to-target-in-your-css {
+
+	background-color: yellow;
+}

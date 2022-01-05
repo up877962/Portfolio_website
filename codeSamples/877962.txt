@@ -1,0 +1,116 @@
+####UP877962 ###
+
+from graphics import *
+
+def main():
+    colours = get_valid_colours()
+    validSize = get_valid_size()
+    draw_patchwork(validSize, colours)
+    
+#  the next 2 functions get and validate the inputs #
+
+def get_valid_colours():
+    print("In this program you can select 3  different colours and an amount of" 
+          "patches to create a patchwork.")
+    validColours = ["red", "blue", "green", "magenta", "orange", "cyan",
+                    "brown", "pink"]
+    colours = []
+    while len(colours) < 3:
+        colourin = input("Please enter a valid colour, red, blue, green, cyan, " 
+                         "magenta, orange, brown or pink are valid:").lower()  
+        if colourin not in validColours:
+            print("INVALID COLOUR TRY AGAIN")
+        elif colourin in colours:
+            print("YOU HAVE USED THIS COLOUR ALREADY")
+        elif colourin in validColours:
+            colours.append(colourin)
+            if len(colours) < 3:  
+                print("SUCCESS, PLEASE PICK ANOTHER")
+    return colours    
+        
+def get_valid_size():
+    validNumbers = ["5", "7", "9", "11"]
+    while True:
+        validSize = input("Please enter the amount of patches to draw"
+                          " either 5, 7, 9, 11:")
+        if validSize not in validNumbers:
+            print("INVALID NUMBER TRY AGAIN")
+        elif validSize in validNumbers:
+            break
+    return int(validSize)
+
+#    draws the first patch   #
+
+def draw_line(win, x, y, colour):
+    line = Line(x, y)
+    line.setFill(colour)
+    line.draw(win)     
+
+def patch_1(win,x,y,colour):
+    for i in range(6):
+        draw_line(win, Point(x + 50 + 10 * i, y),
+                       Point(x + 50 - 10 * i, y + 100), colour)
+        draw_line(win, Point(x, y + 50 - 10 * i),
+                       Point(x + 100, y + 50 + 10 * i), colour)
+        draw_line(win, Point(x, y + 50 + 10 * i),
+                       Point(x + 100, y + 50 - 10 * i), colour)
+        draw_line(win, Point(x + 50 - 10 * i, y),
+                       Point(x + 50 + 10 * i, y + 100), colour)
+
+# draws the second patch   #
+
+def patch_2(win, x, y, colour):
+    for y1 in range(0, 100, 20):
+        for x1 in range(0, 100, 20):
+            if y1 % 40 == 0:
+                tri = Polygon(Point((x + x1), (y + y1)),
+                              Point((x + x1) + 20, (y + y1)),
+                              Point((x + x1) + 10, (y + y1) + 20))
+                tri.setFill(colour)
+                tri.setOutline(colour)
+                tri.draw(win)
+            else:
+                if x1 == 0:
+                    tri = Polygon(Point((x + x1), (y + y1)),
+                                  Point((x + x1), (y + y1) + 20),
+                                  Point((x + x1) + 10, (y + y1)))
+                    tri.setFill(colour)
+                    tri.setOutline(colour)
+                    tri.draw(win) 
+                else:
+                    tri = Polygon(Point((x + x1) - 10, (y + y1)),
+                                  Point((x + x1) + 10, (y + y1)),
+                                  Point((x + x1), (y + y1) + 20))
+                    tri.setFill(colour)
+                    tri.setOutline(colour)
+                    tri.draw(win)
+                if (x1 == 80):
+                    tri = Polygon(Point((x + x1) + 10, (y + y1)),
+                                  Point((x + x1) + 20, (y + y1) + 20),
+                                  Point((x + x1)+ 20, (y + y1)))
+                    tri.setFill(colour)
+                    tri.setOutline(colour)
+                    tri.draw(win) 
+
+#  draws the finished patchwork design   #
+
+def draw_patchwork(validSize, colours):
+    screenHeight = validSize * 100
+    screenWidth = validSize * 100
+    magicNumber = screenHeight - 100
+    win = GraphWin("window", screenWidth, screenHeight)
+    for y in range(0, screenHeight, 100):
+        for x in range(0, screenWidth, 100):
+            rect = Rectangle(Point(x, y), Point(x + 100, y + 100))
+            rect.draw(win)
+            colour=colours[((x // 100) - (y // 100)) % 3]
+            if (x+y == magicNumber ):
+                patch_1(win, x, y, colour)
+            else:    
+                patch_2(win, x, y, colour) 
+    print("ENJOY THE PATCHWORK")
+
+main()                    
+                    
+
+

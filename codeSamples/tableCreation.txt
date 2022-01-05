@@ -1,0 +1,482 @@
+create database XXX;
+use XXX;
+
+create table Outlet(
+	outlet_ID int auto_increment primary key,
+	outlet_Name varchar(30) not null,
+	outlet_Manager varchar(30) not null,
+	outlet_Street varchar(30) not null,
+	outlet_City varchar(30) not null,
+	outlet_PCode varchar(30),
+	outlet_Phone varchar(30) not null,
+	outlet_Email varchar(30)
+);
+
+create table Vehicle(
+	veh_RegNo varchar(30) primary key,
+	veh_Make varchar(30) not null,
+	veh_Model varchar(30) not null,
+	veh_EngSize decimal(3,1),
+	veh_Colour varchar(30) not null,
+	veh_Mileage int,
+	veh_Capacity int,
+	veh_NextMOTdate date,
+	veh_nextServDate date
+);
+
+create table Staff(
+	staff_ID int auto_increment primary key,
+	staff_Title varchar(30) not null,
+	staff_FName varchar(30) not null,
+	staff_LName varchar(30) not null,
+	staff_Street varchar(30) not null,
+	staff_City varchar(30) not null,
+	staff_PCode varchar(30),
+	staff_Phone varchar(30) not null,
+	staff_Email varchar(30),
+	staff_Role varchar(30) not null
+);
+
+create table RestockOrder(
+	restock_ID int auto_increment primary key,
+	restock_Date date
+);
+
+create table Publisher(
+	publish_ID int auto_increment primary key,
+	publish_Name varchar(30) not null,
+	publish_Contact varchar(30) not null,
+	publish_Street varchar(30) not null,
+	publish_City varchar(30) not null,
+	publish_PCode varchar(30),
+	publish_Phone varchar(30) not null,
+	publish_Email varchar(30)
+);
+
+create table Publication(
+	public_ID int auto_increment primary key,
+	public_Title varchar(30) not null,
+	public_CoverPrice decimal(4,2) not null,
+	public_WholesalePrice decimal(4,2) not null,
+	public_Date int,
+	public_Frequency varchar(30) not null,
+	public_Category varchar(30) not null,
+	public_publish_ID int not null,
+ 	foreign key (public_publish_ID) references Publisher(publish_ID)
+);
+
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Portway News', 'Mr Jonathan Archer', '15 Starfleet Road', 'Portsmouth', 'PO2 8TR', '02392 485 116', '123@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('News Today', 'Mr Reg Barclay', '52 Voyager Way', 'Southampton', 'SO2 8TR', '02592 485 196', '323@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Johnsons & Sons', 'Mrs Beverley Crusher', '115 Enterprise Street', 'Eastleigh', 'ES2 8TR', '02892 485 196', '124@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Applebys', 'Miss Jadzia Dax', '23 Excalibur Crescent', 'Winchester', 'WI2 8TR', '03482 485 196', '843@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Chambers', 'Mrs Kathryn Janeway', '105 Discovery Road', 'Basingstoke', 'BA2 8TR', '05682 485 196', '413@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Mackenzies', 'Mr Harry Kim', '53 Bird of Prey Lane', 'Southampton', 'SO3 8TR', '02486 485 196', '357@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Peter News', 'Mr James Kirk', '78 Galaxy Way', 'Andover', 'AD5 8TR', '01478 485 196', '154@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Hellios', 'Mr Jordie La Forge', '3 The Borg Way', 'Portsmouth', 'PO2 8TR', '02392 487 196', '354@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Jones & Raymonds', 'Ms Kira Nerys ', '89 Vulcan Road', 'Basingstoke', 'BA9 8TR', '03649 485 196', '159@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Trelling Post', 'Mr Jean-Luc Picard', '56 Klingon Lane', 'Southampton', 'SO8 8TR', '01982 485 196', '456@gmail.com');
+
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Gosport News', 'Mr Miles OBrien', '35 Cardassian Drive', 'Eastleigh', 'EA4 8TR', '03325 485 196', '321@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Tanners', 'Mr Tom Paris', '44 Kazon Drive', 'Winchester', 'WI3 8TR', '02015 485 196', '987@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Jacobs', 'Mr Q', '50 Romulan Route', 'Portsmouth', 'PO7 8TR', '02392 485 144', '741@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('The Shop on the Corner', 'Mr Wesley Crusher', '65 Andoria Way', 'Portsmouth', 'PO6 8TR', '02392 485 776', '852@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Your Local', 'Mrs Katherine Polaski', '108 Remus Crescent', 'Southampton', 'SO2 8TR', '01245 485 196', '963@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Sperrings', 'Mr Will Riker', '305 Romulus Road', 'Andover', 'AN3 8TR', '09964 485 196', '657@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('One Post', 'Mr Data', '70 Bajor Crescent', 'Winchester', 'WI9 8TR', '05548 485 196', '127@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Chichester Stores', 'Mr Spock', '241 Tholian Street', 'Andover', 'AN5 8TR', '02392 485 196', '553@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Portway Stores', 'Seven of Nine', '57 Trill Road', 'Fleet', 'FL2 8TR', '02392 485 196', '123@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Anthony & Jones', 'Mr Montgomery Scott', '65 Odo Street', 'Southampton', 'SO2 8TR', '02392 485 196', '529@gmail.com');
+
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Albys', 'Mr Benjamin Sisko', '212 Ocampa Mews', 'Eastleigh', 'EA4 8TR', '02392 485 196', '222@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Fareham News', 'Mrs Deanna Troi', '39 The Dominian', 'Portsmouth', 'PO1 8TR', '02392 485 196', '333@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Johnsons', 'Mrs Lwaxana Troi', '123 Klingon Mews', 'Winchester', 'WI5 8TR', '02392 485 196', '663@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Waterways Store', 'Mr Charles Tucker', '48 Tribbles Way', 'Portsmouth', 'PO2 8TR', '02392 485 196', '777@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Jakes', 'Mrs Tasha Yar', '259 Quark Street', 'Southampton', 'PO2 8TR', '02392 485 196', '515@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Avalon Stores', 'Mrs Nyota Uhura', '5 Tuvok Crescent', 'Andover', 'AN2 8TR', '02392 485 196', '881@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Corals', 'Mr Julian Bashir', '77 Chakotay Road', 'Basingstoke', 'BA1 8TR', '02392 485 196', '1234@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Palmer News', 'Mr Leonard McKoy', '117 Travis Mayweather Street', 'Portsmouth', 'PO1 8TR', '02392 485 196', '1123@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('Open All Hours', 'Mr Pavel Chekov', '98 Neelix Way', 'Fleet', 'FL2 8TR', '02392 485 196', '1253@gmail.com');
+insert into Outlet(outlet_Name, outlet_Manager, outlet_Street, outlet_City, outlet_PCode, outlet_Phone, outlet_Email) values('One Stop Only', 'Mr Hikaru Suly', '55 Keiko Lane', 'Southampton', 'SO8 8TR', '02392 485 196', '1023@gmail.com');
+
+insert into Vehicle values('AB15 TRW', 'Ford', 'Transit', 2.4, 'White', 65213, 4516, '2018/02/01', '2018/02/01');
+insert into Vehicle values('AB16 TRW', 'Ford', 'Transit', 1.4, 'White', 87452, 2845, '2018/03/01', '2018/03/01');
+insert into Vehicle values('AB17 TRW', 'Ford', 'Transit', 2.4, 'White', 71236, 4516, '2018/04/01', '2018/04/01');
+insert into Vehicle values('AB18 TRW', 'Ford', 'Transit', 1.4, 'White', 1245, 2845, null, '2018/06/01');
+insert into Vehicle values('AB19 TRW', 'Ford', 'Transit', 2.4, 'White', 6524, 4516, null, '2018/06/02');
+
+insert into Staff(staff_Title, staff_FName, staff_LName, staff_Street, staff_City, staff_PCode, staff_Phone, staff_Email, staff_Role) values('Mr', 'John', 'Sheridan', '7 Narn Street', 'Portsmouth', 'PO3 7ND', '07954 625 894', 'A23@gmail.com', 'Driver');
+insert into Staff(staff_Title, staff_FName, staff_LName, staff_Street, staff_City, staff_PCode, staff_Phone, staff_Email, staff_Role) values('Mr', 'Londo', 'Mollari', '84 Centauri Street', 'Portsmouth', 'PO2 6TF', '07954 625 895', 'B23@gmail.com', 'Driver');
+insert into Staff(staff_Title, staff_FName, staff_LName, staff_Street, staff_City, staff_PCode, staff_Phone, staff_Email, staff_Role) values('Mr', 'Michael', 'Garibaldi', '35 Vorlon Drive', 'Portsmouth', 'PO6 4DE', '07954 625 896', 'C23@gmail.com', 'Driver');
+insert into Staff(staff_Title, staff_FName, staff_LName, staff_Street, staff_City, staff_PCode, staff_Phone, staff_Email, staff_Role) values('Ms', 'Lyta', 'Alexander', '12 Minbari Avenue', 'Portsmouth', 'PO6 2SE', '07954 625 897', 'D23@gmail.com', 'Driver');
+insert into Staff(staff_Title, staff_FName, staff_LName, staff_Street, staff_City, staff_PCode, staff_Phone, staff_Email, staff_Role) values('Mrs', 'Delenn', 'Sheridan', '188 Pakmara Drive', 'Portsmouth', 'PO3 6UJ', '07954 625 898', 'E23@gmail.com', 'Driver');
+
+insert into RestockOrder(restock_Date) values('2018/01/04');
+insert into RestockOrder(restock_Date) values('2018/01/07');
+insert into RestockOrder(restock_Date) values('2018/01/11');
+insert into RestockOrder(restock_Date) values('2018/01/12');
+insert into RestockOrder(restock_Date) values('2018/01/19');
+insert into RestockOrder(restock_Date) values('2018/01/23');
+insert into RestockOrder(restock_Date) values('2018/02/25');
+insert into RestockOrder(restock_Date) values('2018/02/02');
+insert into RestockOrder(restock_Date) values('2018/02/07');
+insert into RestockOrder(restock_Date) values('2018/02/10');
+insert into RestockOrder(restock_Date) values('2018/02/12');
+insert into RestockOrder(restock_Date) values('2018/02/18');
+insert into RestockOrder(restock_Date) values('2018/02/22');
+insert into RestockOrder(restock_Date) values('2018/02/28');
+insert into RestockOrder(restock_Date) values('2018/03/04');
+insert into RestockOrder(restock_Date) values('2018/03/06');
+insert into RestockOrder(restock_Date) values('2018/03/08');
+insert into RestockOrder(restock_Date) values('2018/03/09');
+insert into RestockOrder(restock_Date) values('2018/03/10');
+insert into RestockOrder(restock_Date) values('2018/03/11');
+
+insert into Publisher(publish_Name, publish_Contact, publish_Street, publish_City, publish_PCode, publish_Phone, publish_Email) values('News International', 'Daenerys Targaryen', '34 Ygritte Way', 'London', 'LO5 9YT', '02022 894 853', 'Oeeoi@enterprise.com');
+insert into Publisher(publish_Name, publish_Contact, publish_Street, publish_City, publish_PCode, publish_Phone, publish_Email) values('Dennis Publishing', 'Jon Snow', '14 Greyjoy Road', 'Southampton', 'SO8 9YT', '02492 894 853', 'iiv9ovn@enterprise.com');
+insert into Publisher(publish_Name, publish_Contact, publish_Street, publish_City, publish_PCode, publish_Phone, publish_Email) values('John Brown Media', 'Gregor Clegane', '43 Varys Drive', 'Portsmouth', 'PO2 9YT', '02392 874 853', 'pvepdcm@enterprise.com');
+insert into Publisher(publish_Name, publish_Contact, publish_Street, publish_City, publish_PCode, publish_Phone, publish_Email) values('Future Publishing', 'Arya Stark', '92 Mormont Street', 'Manchester', 'MA5 9YT', '02792 894 753', 'nvrivfn@enterprise.com');
+insert into Publisher(publish_Name, publish_Contact, publish_Street, publish_City, publish_PCode, publish_Phone, publish_Email) values('Guardian Media Group', 'Khal Drogo', '102 Gilly Avenue', 'Guildford', 'GO1 9YT', '02078 894 853', 'paxap@enterprise.com');
+insert into Publisher(publish_Name, publish_Contact, publish_Street, publish_City, publish_PCode, publish_Phone, publish_Email) values('Press Holdings', 'Tyrion Lannister', '3 Grey Worm Way', 'Amesbury', 'AM6 9YT', '08410 894 853', 'qsdsan@enterprise.com');
+insert into Publisher(publish_Name, publish_Contact, publish_Street, publish_City, publish_PCode, publish_Phone, publish_Email) values('DMGT', 'Cersei Lannister', '21 Renly Road', 'London', 'LO9 9YT', '02022 894 852', 'jhcuxu@enterprise.com');
+insert into Publisher(publish_Name, publish_Contact, publish_Street, publish_City, publish_PCode, publish_Phone, publish_Email) values('EIS Media', 'Petyr Baelish', '65 Melisandre Crescent', 'London', 'LO4 9YT', '02022 525 123', 'nzxauvu@enterprise.com');
+insert into Publisher(publish_Name, publish_Contact, publish_Street, publish_City, publish_PCode, publish_Phone, publish_Email) values('HarperCollins', 'Bran Stark', '88 Hodor Way', 'Guildford', 'GU9 9YT', '02078 523 994', 'znsxu@enterprise.com');
+insert into Publisher(publish_Name, publish_Contact, publish_Street, publish_City, publish_PCode, publish_Phone, publish_Email) values('Pan Macmillan', 'Ramsey Bolton', '11 Podrick Road', 'Chichester', 'CH1 9YT', '02454 115 421', 'ohiusk@enterprise.com');
+
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('The Sun', 0.50, 0.48, null, "Daily", 'Newspaper', 1);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('The Mail', 0.65, 0.55, null, "Daily", 'Newspaper', 2);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('The Telegraph', 0.80, 0.70, null, "Daily", 'Newspaper', 1);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('The Times', 0.90, 0.80, null, "Daily", 'Newspaper', 4);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Star Trek Today', 2.95, 2.50, 11, "Monthly", 'Sci-Fi', 5);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Guardians of the Galaxy', 1.75, 1.40, 1, "Monthly", 'Marvel', 1);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Stargate Monthly', 1.99, 1.30, 8, "Monthly", 'Sci-Fi', 5);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Gardeners Today', 1.95, 1.45, 14, "Monthly", 'Gardening', 3);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Gardening for Beginners', 1.99, 1.35, 21, "Monthly", 'Gardening', 3);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('The Guardian', 0.95, 0.85, null, "Daily", 'Newspaper', 6);
+
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('The Independant', 0.85, 0.75, null, "Daily", 'Newspaper', 7);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('PC Today', 2.95, 2.50, 13, "Monthly", 'IT', 5);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('PC Advisor', 2.99, 2.50, 8, "Monthly", 'IT', 6);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('IT World', 1.95, 1.50, 3, "Monthly", 'IT', 7);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Apple Now', 2.75, 2.10, 17, "Monthly", 'IT', 8);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Raspberry PI', 1.95, 1.65, 28, "Monthly", 'IT', 9);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Star Trek World', 2.80, 2.50, 1, "Monthly", 'Sci-Fi', 1);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('How to Speak Klingon', 2.10, 1.85, 2, "Monthly", 'Sci-Fi', 8);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Voyager Monthly', 1.85, 1.30, 11, "Monthly", 'Sci-Fi', 3);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('In Bloom', 1.95, 1.50, 12, "Monthly", 'Gardening', 4);
+
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Womens Views', 1.99, 1.50, 3, "Monthly", 'Women', 9);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Cats Today', 2.99, 2.50, 5, "Monthly", 'Animals', 4);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Perfect Pets', 2.50, 1.80, 17, "Monthly", 'Animals', 6);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Dogs World', 1.95, 1.50, 1, "Monthly", 'Animals', 8);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Crufts', 1.99, 1.50, 14, "Monthly", 'Animals', 4);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Porche Today', 3.95, 3.10, 16, "Monthly", 'Cars', 3);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('4 x 4', 3.75, 3.10, 11, "Monthly", 'Cars', 1);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Womans Realm', 1.10, 0.95, null, "Weekly", 'Women', 7);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Womans Own', 0.95, 0.70, null, "Weekly", 'Women', 8);
+insert into Publication(public_Title, public_CoverPrice, public_WholesalePrice, public_Date, public_Frequency, public_Category, public_publish_ID) values('Womens Weekly', 1.05, 0.80, null, "Weekly", 'Women', 9);
+
+
+
+**************************************************************************************************************************************************************************************************
+*******************************************************************************************************************************************************************************************************
+
+
+create table DeliveryCollection(
+	delColl_ID int auto_increment primary key,
+	delColl_Date date not null,
+	delColl_veh_RegNo varchar(30) not null,
+	delColl_staff_ID int not null,
+	foreign key (delColl_veh_RegNo) references Vehicle(veh_RegNo),
+	foreign key (delColl_staff_ID) references Staff(staff_ID)
+	
+);
+
+
+create table OutletOrder(
+	outOrd_ID int auto_increment primary key,
+	outOrd_outlet_ID int not null,
+	outOrd_delColl_ID int not null,
+	
+	foreign key (outOrd_outlet_ID) references Outlet(outlet_ID),
+	foreign key (outord_delColl_ID) references DeliveryCollection(delColl_ID)
+	
+);
+
+create table PublicationInOrder(
+	pubInOrder_DateTime datetime primary key,
+	pubInOrd_Qty int,
+	pubOrd_public_ID int not null,
+	outOrd_outOrd_ID int not null,
+	
+	foreign key (pubOrd_public_ID) references Publication(public_ID),
+	foreign key (outOrd_outOrd_ID) references OutletOrder(outOrd_ID)
+	
+);
+
+
+create table OutletReturn(
+	outRtn_ID int auto_increment primary key,
+	outRtn_outlet_ID int not null,
+	outRtn_delColl_ID int not null,
+	
+	
+	foreign key (outRtn_outlet_ID) references Outlet(outlet_ID),
+	foreign key (outRtn_delColl_ID) references DeliveryCollection(delColl_ID)
+	
+);
+create table PublicationInReturn(
+	pubInRtn_DateTime datetime primary key,
+	pubInRtn_Qty int ,
+	pubInRet_OutRtn_ID int not null,
+	pubInRet_public_ID int not null,
+	
+	
+	foreign key (pubInRet_OutRtn_ID) references OutletReturn(outRtn_ID),
+	foreign key (pubInRet_public_ID) references Publication(public_ID)
+	
+);
+
+create table PublicationInRestockOrder(
+	pubRestock_DateTime datetime primary key,
+	pubRestock_Qty int ,
+	pubRestock_restock_ID int not null,
+	pubRestock_public_ID int not null,
+	
+	
+	foreign key (pubRestock_restock_ID) references RestockOrder(restock_ID),
+	foreign key (pubRestock_public_ID) references Publication(public_ID)
+	
+);
+
+
+create table Contract(
+	contract_ID int auto_increment primary key,
+	contract_StartDate date,
+	contract_EndDate date,
+	contract_Public_ID int not null,
+	contract_publish_ID int not null,
+	contract_outlet_ID int not null,
+	
+	
+	
+	foreign key (contract_Public_ID) references Publication(public_ID),
+	foreign key (contract_publish_ID) references Publisher(publish_ID),
+	foreign key (contract_outlet_ID) references Outlet(outlet_ID)
+);
+
+
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-04-01', 'AB15 TRW',1);
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-04-03', 'AB16 TRW',2);
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-03-29', 'AB17 TRW',3);
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-04-03', 'AB18 TRW',5);
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-04-02', 'AB19 TRW',4);
+
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-04-08', 'AB17 TRW',2);
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-04-01', 'AB16 TRW',3);
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-03-30', 'AB18 TRW',1);
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-04-02', 'AB16 TRW',4);
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-04-11', 'AB19 TRW',5);
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-03-29', 'AB18 TRW',2);
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-04-10', 'AB18 TRW',1);
+insert into DeliveryCollection(delColl_Date, delColl_veh_RegNo, delColl_staff_ID) values('2018-04-06', 'AB15 TRW',4);
+
+
+
+
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('12',1);
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('1',2);
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('16',10);
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('6',4);
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('26',5);
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('22',9);
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('3',7);
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('8',8);
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('17',6);
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('11',3);
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('28',11);
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('14',13);
+insert into OutletOrder(outOrd_outlet_ID, outOrd_delColl_ID) values('7',12);
+
+
+
+
+
+insert into PublicationInOrder(pubInOrder_DateTime, pubInOrd_Qty, pubOrd_public_ID, outOrd_outOrd_ID) values('2018-03-29 14:26:02',2000 ,7, 3);
+insert into PublicationInOrder(pubInOrder_DateTime, pubInOrd_Qty, pubOrd_public_ID, outOrd_outOrd_ID) values('2018-03-28 15:17:23',5000 ,4, 5);
+insert into PublicationInOrder(pubInOrder_DateTime, pubInOrd_Qty, pubOrd_public_ID, outOrd_outOrd_ID) values('2018-04-01 11:46:09',2000 ,16, 1);
+insert into PublicationInOrder(pubInOrder_DateTime, pubInOrd_Qty, pubOrd_public_ID, outOrd_outOrd_ID) values('2018-04-02 16:57:45',800 ,23, 2);
+insert into PublicationInOrder(pubInOrder_DateTime, pubInOrd_Qty, pubOrd_public_ID, outOrd_outOrd_ID) values('2018-04-04 14:30:17',200 ,26, 7);
+insert into PublicationInOrder(pubInOrder_DateTime, pubInOrd_Qty, pubOrd_public_ID, outOrd_outOrd_ID) values('2018-04-03 09:40:16',700 ,18, 9);
+insert into PublicationInOrder(pubInOrder_DateTime, pubInOrd_Qty, pubOrd_public_ID, outOrd_outOrd_ID) values('2018-04-06 10:18:05',1000 ,29, 12);
+insert into PublicationInOrder(pubInOrder_DateTime, pubInOrd_Qty, pubOrd_public_ID, outOrd_outOrd_ID) values('2018-04-05 11:45:33',400 ,12, 11);
+insert into PublicationInOrder(pubInOrder_DateTime, pubInOrd_Qty, pubOrd_public_ID, outOrd_outOrd_ID) values('2018-04-04 13:11:11',3000 ,19, 8);
+insert into PublicationInOrder(pubInOrder_DateTime, pubInOrd_Qty, pubOrd_public_ID, outOrd_outOrd_ID) values('2018-04-02 14:30:18',5000 ,1, 4);
+
+
+
+
+
+
+insert into OutletReturn(outRtn_outlet_ID, outRtn_delColl_ID) values('12',3);
+insert into OutletReturn(outRtn_outlet_ID, outRtn_delColl_ID) values('23',4);
+insert into OutletReturn(outRtn_outlet_ID, outRtn_delColl_ID) values('1',9);
+insert into OutletReturn(outRtn_outlet_ID, outRtn_delColl_ID) values('17',2);
+insert into OutletReturn(outRtn_outlet_ID, outRtn_delColl_ID) values('8',1);
+insert into OutletReturn(outRtn_outlet_ID, outRtn_delColl_ID) values('29',5);
+insert into OutletReturn(outRtn_outlet_ID, outRtn_delColl_ID) values('4',11);
+insert into OutletReturn(outRtn_outlet_ID, outRtn_delColl_ID) values('16',8);
+insert into OutletReturn(outRtn_outlet_ID, outRtn_delColl_ID) values('26',9);
+insert into OutletReturn(outRtn_outlet_ID, outRtn_delColl_ID) values('11',13);
+
+
+
+
+insert into PublicationInReturn(pubInRtn_DateTime, pubInRtn_Qty, pubInRet_OutRtn_ID, pubInRet_public_ID) values('2018-04-02 14:29:18',150 ,4, 27);
+insert into PublicationInReturn(pubInRtn_DateTime, pubInRtn_Qty, pubInRet_OutRtn_ID, pubInRet_public_ID) values('2018-03-30 14:44:01',50 ,9, 14);
+insert into PublicationInReturn(pubInRtn_DateTime, pubInRtn_Qty, pubInRet_OutRtn_ID, pubInRet_public_ID) values('2018-04-03 09:19:04',70 ,5, 12);
+insert into PublicationInReturn(pubInRtn_DateTime, pubInRtn_Qty, pubInRet_OutRtn_ID, pubInRet_public_ID) values('2018-04-01 11:33:23',40 ,7, 17);
+insert into PublicationInReturn(pubInRtn_DateTime, pubInRtn_Qty, pubInRet_OutRtn_ID, pubInRet_public_ID) values('2018-04-01 13:31:44',140 ,4, 19);
+insert into PublicationInReturn(pubInRtn_DateTime, pubInRtn_Qty, pubInRet_OutRtn_ID, pubInRet_public_ID) values('2018-04-02 14:32:12',100 ,6, 30);
+insert into PublicationInReturn(pubInRtn_DateTime, pubInRtn_Qty, pubInRet_OutRtn_ID, pubInRet_public_ID) values('2018-03-30 14:30:18',50 ,8, 9);
+insert into PublicationInReturn(pubInRtn_DateTime, pubInRtn_Qty, pubInRet_OutRtn_ID, pubInRet_public_ID) values('2018-04-02 16:34:09',30 ,3, 2);
+insert into PublicationInReturn(pubInRtn_DateTime, pubInRtn_Qty, pubInRet_OutRtn_ID, pubInRet_public_ID) values('2018-04-04 12:32:43',150 ,2, 7);
+insert into PublicationInReturn(pubInRtn_DateTime, pubInRtn_Qty, pubInRet_OutRtn_ID, pubInRet_public_ID) values('2018-04-02 13:29:12',150 ,1, 22);
+
+
+
+
+
+
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-03-30 14:39:22',500 ,4, 22);
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-04-01 14:30:42',200 ,1, 17);
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-04-02 09:17:12',100 ,9, 24);
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-04-02 11:06:34',50 ,16, 9);
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-04-03 12:45:14',75 ,11, 29);
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-04-04 16:39:26',100 ,6, 4);
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-04-01 14:56:54',50 ,13, 30);
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-03-30 14:30:34',100 ,15, 19);
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-04-01 13:29:56',40 ,7, 20);
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-03-30 16:39:12',300 ,5, 11);
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-03-30 14:45:30',50 ,6, 12);
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-04-01 13:44:12',20 ,9, 14);
+insert into PublicationInRestockOrder(pubRestock_DateTime, pubRestock_Qty, pubRestock_restock_ID, pubRestock_public_ID) values('2018-04-02 11:20:32',75 ,14, 16);
+
+
+
+
+
+
+insert into Contract(contract_StartDate, contract_EndDate, contract_Public_ID, contract_publish_ID, contract_outlet_ID) values('2015-06-29','2020-06-28', 30, 9 ,11);
+insert into Contract(contract_StartDate, contract_EndDate, contract_Public_ID, contract_publish_ID, contract_outlet_ID) values('2000-11-25','2030-11-24', 11, 4 ,14);
+insert into Contract(contract_StartDate, contract_EndDate, contract_Public_ID, contract_publish_ID, contract_outlet_ID) values('2016-03-12','2021-03-11', 16, 3 ,23);
+insert into Contract(contract_StartDate, contract_EndDate, contract_Public_ID, contract_publish_ID, contract_outlet_ID) values('2015-06-11','2020-06-10', 20, 6 ,17);
+insert into Contract(contract_StartDate, contract_EndDate, contract_Public_ID, contract_publish_ID, contract_outlet_ID) values('2016-08-30','2018-08-30', 13, 7 ,1);
+insert into Contract(contract_StartDate, contract_EndDate, contract_Public_ID, contract_publish_ID, contract_outlet_ID) values('2012-02-15','2022-02-14', 1, 2 ,9);
+insert into Contract(contract_StartDate, contract_EndDate, contract_Public_ID, contract_publish_ID, contract_outlet_ID) values('2017-04-06','2027-04-05', 9, 2 ,5);
+insert into Contract(contract_StartDate, contract_EndDate, contract_Public_ID, contract_publish_ID, contract_outlet_ID) values('2017-05-17','2019-05-16', 10, 5 ,3);
+insert into Contract(contract_StartDate, contract_EndDate, contract_Public_ID, contract_publish_ID, contract_outlet_ID) values('2016-12-06','2026-12-05', 27, 10 ,27);
+insert into Contract(contract_StartDate, contract_EndDate, contract_Public_ID, contract_publish_ID, contract_outlet_ID) values('2011-01-30','2019-01-29', 15, 1 ,30);
+
+
+######################### END OF DATABASE CODE, QUERIES FOLLOW #############################################
+
+QUERY 1 is ok .......staff sickness
+
+select * from DeliveryCollection  
+where delColl_Date = "2018-04-03" 
+and delColl_staff_ID = 2;
+
+
+QUERY 2 ============================================THIS WORKS CAN GET QUANTITIES CURRENTLY IN ORDER and the times the orders were placed
+
+SELECT PublicationInOrder.pubInOrd_Qty, OutletOrder.outOrd_outlet_ID,  PublicationInOrder.pubOrd_public_ID, PublicationInOrder.pubInOrder_DateTime
+FROM  PublicationInOrder
+INNER JOIN  OutletOrder
+ON PublicationInOrder.pubOrd_public_ID=OutletOrder.outOrd_outlet_ID;
+
+
+
+
+QUERY 3 a way to look at profit margins for the publications soreted by the most profitable first
+
+SELECT public_Title,public_CoverPrice - public_WholesalePrice 
+AS profit_Margin 
+FROM Publication
+ORDER BY profit_Margin desc;
+
+
+QUERY 4 works--------shows all publications a publisher produces and their frequency
+
+SELECT Publication.public_Title, Publisher.publish_Name, Publication.public_Frequency 
+FROM Publisher
+inner JOIN Publication
+ON Publisher.publish_ID=Publication.public_publish_ID
+WHERE publish_ID = 3;
+
+
+QUERY 5 :) ---- a way of checking if an outlet regularly over orders
+
+SELECT * from PublicationInReturn
+WHERE pubInRtn_Qty > 100
+AND pubInRet_OutRtn_ID = 4;
+
+
+
+AGG QUERY 1 a way to look at the average amount of orders an outlet places
+
+select avg(pubInOrd_Qty) as AverageOrders
+from PublicationInOrder
+where outOrd_outOrd_ID = 2;
+
+
+AGG QUERY 2 -------------- works lists the total number of publications each publisher produces
+
+select public_publish_ID, count(public_Category)
+from Publication
+group by public_publish_ID;
+
+AGG QUERY 3----------------------------------- a way to look a the total amount of a publication is on order
+
+select sum(pubInOrd_Qty) as TotalOrders
+from PublicationInOrder
+where pubOrd_public_ID = 12;
+
+AGG QUERY 4 works lists the largest and smalles vehicle load capacities
+
+select min(veh_Capacity) as SmallestCapacity, 
+       max(veh_Capacity) as LargestCapacity
+from Vehicle;
+
+AGG QUERY 5 
+
+select count(pubRestock_DateTime) as DailyRestockOrders
+from PublicationInRestockOrder
+where pubRestock_DateTime >= '2018-03-30' 
+and pubRestock_DateTime < '2018-03-31';
+
+
+
+mysql -u root -p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
