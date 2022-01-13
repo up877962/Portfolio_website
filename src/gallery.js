@@ -7,14 +7,14 @@ const gallery_data = [
 
   id: 1,
   pic:'./images/newlifecode2.png',
-  description: "An image of some shit i did while at uni"
+  description: "An image of some stuff i did while at uni"
 
 },
 {
 
  id: 2,
  pic:'./images/2nderror.png',
- description: "some more shit i did at uni"
+ description: "some more stuff i did at uni"
 
 
 },
